@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package p4;
+
+message Bitstring {
+  bytes bitstring = 1;
+}
+
+message Data {
+  oneof data {
+    bytes bitstring = 1;
+    string other1 = 2;
+    google.protobuf.Any other2 = 3;
+  }
+}
+
+message DataWrapper {
+  Data data = 1;
+}
